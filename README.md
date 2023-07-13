@@ -1,6 +1,7 @@
 # api_arabidopsis_tair_access
 This repository contains a function which will make your access to tair datasets easier for the arabidopsis research. Run this function and it will run and download the arabidopsis datasets and make the required analysis. It will make all the dictionary with nested lists and tuples which will provide a easy access to the tair dataframe. 
-You dont have to go to tair website and check the gene conversion or the uniprot conversions, or the mapping or checking for the coordinates. This provides a nested dictionary with the nested list and tuples and you can simply search them. Additionally, it will automatically update when you the new release is there. 
+You dont have to go to tair website and check the gene conversion or the uniprot conversions, or the mapping or checking for the coordinates. This provides a nested dictionary with the nested list and tuples and you can simply search them. Additionally, it will automatically update when you the new release is there. no need to make a SQL database and anything, it will provide everything and you can then download the required coordinates. I actually build a django framework based on this with the HDF5 format so that you can even access the sequences. Check this git if you want more out of it or want to clone a django framework to your server. 
+
 Gaurav Sablok \
 Senior Postdoctoral Fellow \
 Faculty of Natural and Agricultural Sciences Room 7-35, \
