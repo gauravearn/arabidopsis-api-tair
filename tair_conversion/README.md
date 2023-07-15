@@ -1,6 +1,7 @@
 # tair_conversion
 
-A python package to make the tair conversion accessible in the form of the nested dictionary and tuples for easy searching and without making a sql database at the hand. It will automatically download the required files and then will remove them after searching your required accession across the AGI, Arabport, Uniprot and giving you all the information for those releavant accessions.
+A python package to make the tair conversion accessible in the form of the nested dictionary and tuples for easy searching and without making a sql database at the hand. It will automatically download the required files and then will remove them after searching your required accession across the AGI, 
+Arabport, Uniprot and giving you all the information for those releavant accessions. This package has been developed at the University of Pretoria. 
 
 ## Installation
 
