@@ -38,6 +38,7 @@ if uniprot_agi:
         for line in uni.readlines():
             uniprot_agi["uniprot", line.strip().split("\t")[0]] = \
                              {"AGI":line.strip().split("\t")[1:]}
+    os.remove(os.path.abspath(os.path.join(os.getcwd(), "Uniprot2AGI-JAN2023.txt"))
 if agi_uniprot:
     agi_uniprot_url = "https://www.arabidopsis.org/download_files/Proteins/Id_conversions/AGI2uniprot-JAN2023.txt"
     wget.download(agi_uniprot_url)
@@ -45,7 +46,8 @@ if agi_uniprot:
     with open(os.path.abspath(os.path.join(os.getcwd(), "AGI2uniprot-JAN2023.txt")), "r") as agi:
         for line in agi.readlines():
             agi_uniprot["AGI",line.strip().split("\t")[0]] = \
-                                {"uniprot_identifier": line.strip().split("\t")[1:]}
+                              {"uniprot_identifier": line.strip().split("\t")[1:]}
+    os.remove(os.path.join(os.getcwd(), "AGI2uniprot-JAN2023.txt"))                          
 if uniprot_tair:
     uniprot_tair_url = "https://www.arabidopsis.org/download_files/Proteins/Id_conversions/TAIR2UniprotMapping-JAN2023.txt"
     wget.download(uniprot_tair_url)
@@ -54,14 +56,15 @@ if uniprot_tair:
         for line in tair.readlines():
             tair_uniprot["uniprot", line.strip().split("\t")[0]] = \
                             {"locus_tair_ID":line.strip().split("\t")[1:]}
+    os.remove(os.path.join(os.getcwd(), "TAIR2UniprotMapping-JAN2023.txt"))                        
 if tair_protein_models:
     tair_protein_models = {}
     with open(os.path.abspath(os.path.join(os.getcwd(), "Araport11_pep_20220914_representative_gene_model")), "r") as protein:
         for line in protein.readlines():
             if line.startswith(">"):
                 tair_protein_models["AGI",line.strip().split("|")[0].replace(">", "")] = \
-                       {"chromosome": line.strip().split("|")[3].replace(" ", "_").replace("LENGTH=", "")}
-
+                       {"chromosome": line.strip().split("|")[3].replace(" ", "_").replace("LENGTH=", "")}              
+    os.remove(os.path.join(os.getcwd(), "Araport11_pep_20220914_representative_gene_model"))
 if all_ua_au_ut_tpm:
     for file in os.walk("directory"):
         for i in file:
@@ -85,20 +88,23 @@ with open(os.path.abspath(os.path.join(os.getcwd(), "Uniprot2AGI-JAN2023.txt")),
         for line in uni.readlines():
             uniprot_agi["uniprot", line.strip().split("\t")[0]] = \
                              {"AGI":line.strip().split("\t")[1:]}
+os.remove(os.path.abspath(os.path.join(os.getcwd(), "Uniprot2AGI-JAN2023.txt"))                             
 with open(os.path.abspath(os.path.join(os.getcwd(), "AGI2uniprot-JAN2023.txt")), "r") as agi:
         for line in agi.readlines():
             agi_uniprot["AGI",line.strip().split("\t")[0]] = \
                                 {"uniprot_identifier": line.strip().split("\t")[1:]}
+os.remove(os.path.join(os.getcwd(), "AGI2uniprot-JAN2023.txt"))                                 
 with open(os.path.abspath(os.path.join(os.getcwd(), "TAIR2UniprotMapping-JAN2023.txt")), "r") as tair:
         for line in tair.readlines():
             tair_uniprot["uniprot", line.strip().split("\t")[0]] = \
                             {"locus_tair_ID":line.strip().split("\t")[1:]}
+os.remove(os.path.join(os.getcwd(), "TAIR2UniprotMapping-JAN2023.txt"))                             
 with open(os.path.abspath(os.path.join(os.getcwd(), "Araport11_pep_20220914_representative_gene_model")), "r") as protein:
         for line in protein.readlines():
             if line.startswith(">"):
                 tair_protein_models["AGI",line.strip().split("|")[0].replace(">", "")] = \
                        {"chromosome": line.strip().split("|")[3].replace(" ", "_").replace("LENGTH=", "")}
-
+os.remove(os.path.join(os.getcwd(), "Araport11_pep_20220914_representative_gene_model"))
 else:
     print("cant make an updated catalog of the tair database models")
 snap.stop()
